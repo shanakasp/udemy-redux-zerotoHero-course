@@ -1,12 +1,4 @@
-import { useState } from "react";
-
-function Counter() {
-  const [count, setcount] = useState(0);
-
-  const increment = () => {
-    setcount(count + 1);
-  };
-
+function Counter({ count, increment }) {
   return (
     <>
       <h1>Count is {count}</h1>
