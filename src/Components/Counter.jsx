@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { increment } from "../redux/action";
 
 function Counter() {
-  const [count, setcount] = useState(0);
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
 
-  const increment = () => {
-    setcount(count + 1);
+  const handleIncrement = () => {
+    dispatch(increment());
   };
 
   return (
     <>
       <h1>Count is {count}</h1>
-      <button onClick={increment}>Click here to increment by 1</button>
+      <button onClick={handleIncrement}>Click here to increment by 1</button>
     </>
   );
 }
